@@ -1,0 +1,463 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+:root {
+  --content-bgc: #eee;
+  --content-text-color: #fff;
+  --content-title-color: #fff;
+  --home-text-color: #555;
+  --nav-bgc: #000;
+  --nav-text-color: #fff;
+  --nav-active-text-color: #000;
+  --footer-bgc: #fff;
+  --footer-text-color: #555;
+  --nav-width: 80px;
+  --nav-height: 65px;
+  --primary-color: #4bc5e1;
+  --timeline-color: #04366b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  text-decoration: none;
+  scroll-behavior: smooth;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--content-bgc);
+  font-size: 22px;
+  font-family: "Righteous", sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+aside {
+  width: var(--nav-width);
+  height: 100%;
+  position: fixed;
+  background-color: var(--nav-bgc);
+  z-index: 9999;
+  transition: all 0.2s ease-in-out;
+  overflow-x: hidden;
+  cursor: pointer;
+}
+aside ul.nav {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0;
+  position: relative;
+}
+aside ul.nav .active-indicator {
+  width: 100%;
+  height: 65px;
+  position: absolute;
+  left: 0;
+  background-color: #eee;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  transition: top 0.3s ease-in-out;
+  z-index: -1;
+}
+aside li {
+  width: 100%;
+  height: var(--nav-height);
+  padding: 20px;
+  position: relative;
+  left: 5px;
+  font-size: 22px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+aside li .icon {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  color: var(--nav-text-color);
+}
+aside li .icon i {
+  margin-right: 10px;
+}
+aside li .icon .text {
+  display: none;
+}
+aside li.active {
+  background-color: transparent;
+}
+aside li.active a, aside li.active i, aside li.active .text {
+  color: var(--nav-active-text-color);
+}
+aside li#logo {
+  margin-left: -8px;
+  transition: all 0.3s ease;
+}
+aside li#logo a {
+  font-weight: bolder;
+  color: var(--nav-text-color);
+  letter-spacing: 1px;
+}
+aside li#logo.active a {
+  color: var(--nav-active-text-color);
+}
+
+section#content {
+  width: calc(100% - var(--nav-width));
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: var(--content-text-color);
+}
+
+footer {
+  position: fixed;
+  height: 15px;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--footer-bgc);
+  text-align: center;
+  color: var(--footer-text-color);
+  font-size: 12px;
+}
+
+section .page {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  inset: 0;
+  padding-top: var(--nav-width);
+  padding-left: calc(var(--nav-width) * 2 + 50px);
+  padding-right: 50px;
+}
+section .page h1.title {
+  color: var(--content-title-color);
+}
+section #home {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  color: var(--home-text-color);
+}
+section #home .mainwrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+}
+section #home .mainwrap h1 {
+  font-size: 3.5em;
+  margin-bottom: 20px;
+}
+section #home .mainwrap h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+}
+section #home .imgwrap img {
+  width: 500px;
+  height: 500px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+section #about {
+  background-image: url(/data/images/about/about.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  cursor: url("/data/images/about/rocketcursor.png") 0 0, auto;
+}
+section #about h1.title {
+  margin-bottom: 100px;
+}
+section #about ul.timeline {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 80px;
+  border-top: 10px solid var(--timeline-color);
+  display: flex;
+}
+section #about ul.timeline li.item {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: auto;
+  top: -37px;
+  left: calc(var(--i) * 200px);
+  text-align: center;
+}
+section #about ul.timeline li.item .planet {
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-bottom: 10px;
+  cursor: url("/data/images/about/focus.png") 32 32, auto;
+}
+section #about .description {
+  position: fixed;
+  left: 50%;
+  bottom: 15px;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: var(--primary-color);
+  font-size: 20px;
+  background-image: url(/data/images/about/descBg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  z-index: 9998;
+}
+section #about .description li {
+  list-style: decimal;
+}
+section #about .description.show {
+  opacity: 1;
+  z-index: 10000;
+}
+section #skills {
+  position: absolute;
+  background-image: url(/data/images/skills/skills.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 50%;
+  display: flex;
+}
+section #skills h1.title, section #skills h3.subtitle {
+  margin-bottom: 20px;
+}
+section #skills ul.icons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+section #skills ul.icons li.item img {
+  width: 80px;
+  height: 80px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+section #skills .skillsPic {
+  width: 500px;
+  height: 500px;
+  -o-object-fit: contain;
+     object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+section #portfolio {
+  background-image: url(/data/images/portfolio/portfolio.png);
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+}
+section #portfolio .showcase {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 30px;
+  position: relative;
+}
+section #portfolio .showcase li.project {
+  width: 160px;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border-radius: 10px;
+  border: 5px solid #333;
+  background-color: #acacc0;
+  padding: 0.5em;
+  box-shadow: 10px 10px 10px #000;
+  cursor: pointer;
+}
+section #portfolio .showcase li.project img {
+  width: calc(140px - 0.5em);
+  height: calc(110px - 0.5em);
+  border-radius: 5px;
+  border: 1px solid #000;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-bottom: 10px;
+}
+section #portfolio .showcase li.project:nth-child(1) {
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease;
+}
+section #portfolio .showcase li.project:nth-child(1):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+section #portfolio .showcase li.project:nth-child(2) {
+  transform: rotate(-4deg);
+  transition: transform 0.3s ease;
+}
+section #portfolio .showcase li.project:nth-child(2):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+section #portfolio .showcase li.project:nth-child(3) {
+  transform: rotate(2deg);
+  transition: transform 0.3s ease;
+}
+section #portfolio .showcase li.project:nth-child(3):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+section #portfolio .showcase li.project:nth-child(4) {
+  transform: rotate(-4deg);
+  transition: transform 0.3s ease;
+}
+section #portfolio .showcase li.project:nth-child(4):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+section #portfolio .showcase li.project:nth-child(5) {
+  transform: rotate(4deg);
+  transition: transform 0.3s ease;
+}
+section #portfolio .showcase li.project:nth-child(5):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+section #portfolio .showcase li.project:nth-child(6) {
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease;
+}
+section #portfolio .showcase li.project:nth-child(6):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+section #portfolio .showcase li.project:nth-child(7) {
+  transform: rotate(-4deg);
+  transition: transform 0.3s ease;
+}
+section #portfolio .showcase li.project:nth-child(7):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+section #portfolio .showcase li.project:nth-child(8) {
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+section #portfolio .showcase li.project:nth-child(8):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+section #portfolio .showcase li.project:nth-child(9) {
+  transform: rotate(-4deg);
+  transition: transform 0.3s ease;
+}
+section #portfolio .showcase li.project:nth-child(9):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+section #portfolio .showcase li.project:nth-child(10) {
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease;
+}
+section #portfolio .showcase li.project:nth-child(10):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+section #contact {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.8)), url(/data/images/contact/contactBg.png);
+  background-size: cover;
+  background-position: center 85%;
+  background-repeat: no-repeat;
+}
+section #contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 8em at var(--x) var(--y), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7));
+  pointer-events: none;
+}
+section #contact h1 {
+  position: fixed;
+  z-index: 9999;
+}
+section #contact #info {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+  color: var(--primary-color);
+  font-size: 50px;
+  text-align: center;
+  pointer-events: none;
+  text-shadow: 0 0 8px var(--primary-color);
+  z-index: 9999;
+}
+section #contact .container {
+  width: 100%;
+  height: auto;
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+section #contact .container li {
+  --x: 0;
+  --y: 0;
+  --opacity: 0;
+  width: 320px;
+  height: 270px;
+  position: absolute;
+  top: calc(var(--h) * 320px);
+  left: calc(var(--i) * 220px + 120px);
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+section #contact .container li:hover {
+  opacity: 1;
+}
+section #contact .container li::after {
+  content: "點擊複製";
+  position: fixed;
+  font-size: 12px;
+  background-color: #444;
+  color: var(--primary-color);
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: var(--opacity);
+  pointer-events: none;
+  left: var(--x);
+  top: var(--y);
+  transform: translate(10px, 10px);
+  transition: opacity 0.2s ease;
+  z-index: 9999;
+}

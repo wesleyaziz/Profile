@@ -1,0 +1,80 @@
+{
+  "aboutPage": {
+    "title": "My Journey",
+    "items": [
+      {
+        "time": "2017.7-2017.8",
+        "event": "實習生",
+        "institution": "國立科博館",
+        "description": [
+          "展場導覽",
+          "協助民眾使用設施",
+          "帶領學童參加夏季營隊活動",
+          "處理庶務性行政工作及採買用具",
+          "支援部門內的業務及活動"
+        ]
+      },
+      {
+        "time": "2018.6",
+        "event": "大學畢業",
+        "institution": "淡江資圖系",
+        "description": [
+          "數位資源徵集、典藏技術",
+          "資訊系統管理",
+          "讀者服務",
+          "前端基礎程式語言"
+        ]
+      },
+      {
+        "time": "2018.7-2022.12",
+        "event": "製圖工程師",
+        "institution": "全景企業",
+        "description": [
+          "5D Crystal 繪圖作業",
+          "AutoCAD 繪製圖面",
+          "與台積電業主或其他相關工程人員協調溝通",
+          "對公司新進成員進行訓練與管理",
+          "一般主管交代行政庶務"
+        ]
+      },
+      {
+        "time": "2023.1-2023.7",
+        "event": "跨平台網頁設計應用班",
+        "institution": "職訓局",
+        "description": [
+          "HTML/CSS/JS",
+          "Bootstrap框架建立RWD網頁",
+          "Git版本控制",
+          "Photoshop/Illustrator",
+          "VSCode運行環境"
+        ]
+      },
+      {
+        "time": "2024.4-2024.7",
+        "event": "智慧農業無人機AI巡檢班",
+        "institution": "工研院",
+        "description": [
+          "無人機飛行原理",
+          "AI辨識技術",
+          "無人機組裝",
+          "無人機巡檢流程",
+          "無人機飛行安全規範"
+        ]
+      },
+      {
+        "time": "2024.8-current",
+        "event": "自學前端",
+        "institution": "",
+        "description": [
+          "Sass / Scss",
+          "深入學習JS",
+          "markdown 文件撰寫",
+          "webpack 打包工具",
+          "基礎Vue.js框架",
+          "GSAP 動畫套件",
+          "網頁互動效果"
+        ]
+      }
+    ]
+  }
+}
