@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       // ====contact li背景更換====
       const contactBg = document.querySelectorAll('#contact .container li')
       contactBg.forEach((items,index)=>{
-        items.style.backgroundImage = `url('./data/images/contact/contact_0${index+1}.png')`
+        items.style.backgroundImage = `url('/data/images/contact/contact_0${index+1}.png')`
       })
     })
 

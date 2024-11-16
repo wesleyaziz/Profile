@@ -1,0 +1,17 @@
+#portfolio
+  +BgImageCover('/data/images/portfolio/portfolio.png',center,bottom)
+  .showcase
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr))
+    gap: 30px
+    position: relative
+    li.projectCard
+      +projectCard()
+
+@for $i from 1 through 10
+  li.projectCard:nth-child(#{$i})
+    transform: rotate(#{random(10) - 5}deg)
+    transition: transform 0.3s ease
+    &:hover
+      transform: scale(1.2)
+      box-shadow: 15px 15px 25px #000

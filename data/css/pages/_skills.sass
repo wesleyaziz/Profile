@@ -1,0 +1,18 @@
+#skills
+  position: absolute
+  +BgImageCover('/data/images/skills/skills.png',center,50%)
+  display: flex
+  h1.title, h3.subtitle
+    margin-bottom: 20px
+  ul.icons
+    +flexbox(row,flex-start,center)
+    li.item
+      img
+        +size(80px)
+        object-fit: contain
+  .skillsPic
+    +size(500px)
+    object-fit: contain
+    position: absolute
+    top: 50%
+    left: 50%

@@ -1,0 +1,16 @@
+#home
+  +size(100%,100vh)
+  display: flex
+  color: var(--home-text-color)
+  .mainwrap
+    +flexbox(column,center,start)
+    h1
+      font-size: 3.5em
+      margin-bottom: 20px
+    h2
+      font-size: 2.5em
+      margin-bottom: 20px
+  .imgwrap
+    img
+      +size(500px)
+      object-fit: cover
