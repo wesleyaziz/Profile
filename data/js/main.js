@@ -70,15 +70,16 @@ document.addEventListener('DOMContentLoaded',()=>{
       
       timelineItems.forEach((item,index)=>{
         item.addEventListener('mouseenter',function(){
+          descriptionEle.style.display = 'flex'
           const descriptions = data.aboutPage.items[index].description
           descriptionEle.innerHTML = descriptions.map((ele) =>{
             return `<li>${ele}</li>`
           }).join('')
-          descriptionEle.classList.add('show')
+          descriptionEle.style.animation = 'spaceshipUp 1s ease-out forwards'
         })
 
         item.addEventListener('mouseleave',function(){
-          descriptionEle.classList.remove('show')
+          descriptionEle.style.animation = 'spaceshipDown 1s ease-in forwards'
         })
       })
     } catch(error){

@@ -1,9 +1,38 @@
 #skills
-  position: absolute
-  +BgImageCover('/data/images/skills/skills.png',center,50%)
-  display: flex
-  h1.title, h3.subtitle
-    margin-bottom: 20px
+  position: relative
+  h1.title
+    position: absolute
+    top: -100px
+    animation: h1dropdown 2s ease 0.5s forwards
+
+  .skillsBox
+    position: absolute
+    top: 150px
+    display: grid
+    grid-template-columns: repeat(2,1fr)
+    gap: 30px
+    +size(80%,auto)
+    transform-origin: center calc(100% + 350px)
+    animation: boxWave 1.25s ease-in-out 3s forwards
+    opacity: 0
+  .astronaut
+    position: absolute
+    +size(110%,100%)
+    +BgImageCover('/data/images/skills/skills.png',center,100%)
+    inset: 0
+    z-index: -2
+    animation: dropdown 2s ease 0.5s forwards
+  .hand
+    position: absolute
+    +size(100vw)
+    +BgImageContain('/data/images/skills/rightHand.png')
+    right: 0
+    top: 100%
+    z-index: 10000
+    transform: rotate(-30deg)
+    transform-origin: bottom center
+    animation: handup 2s ease-in-out 2s forwards,handWave 2s ease-in-out 3s forwards
+
   ul.icons
     +flexbox(row,flex-start,center)
     li.item
@@ -16,3 +45,34 @@
     position: absolute
     top: 50%
     left: 50%
+@keyframes h1dropdown
+  from
+    top: -100px
+  to
+    top: var(--nav-width)
+
+@keyframes dropdown
+  from
+    background-position: center 100%
+  to
+    background-position: center 0%
+
+@keyframes handup
+  from
+    top: 100%
+  to
+    top: -10%
+
+@keyframes handWave
+  from
+    transform: rotate(-30deg)
+  to
+    transform: rotate(65deg)
+
+@keyframes boxWave
+  from
+    transform: rotate(-90deg)
+    opacity: 0
+  to
+    transform: rotate(0deg)
+    opacity: 1
