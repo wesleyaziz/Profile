@@ -31,6 +31,9 @@ document.addEventListener('DOMContentLoaded',()=>{
       if(page === 'contact') {
         initializeContactPage()
       }
+      if(page === 'portfolio') { 
+        initializePortfolioPage()
+      }
     }catch(error){
       console.error('Error Loading Page:', error)
       document.querySelector('#content').innerHTML = '<p>Error loading content.</p>'
@@ -151,4 +154,24 @@ document.addEventListener('DOMContentLoaded',()=>{
     })
   }
 
+  function initializePortfolioPage(){
+    const nextBtn = document.querySelector('#portfolio .nextBtn')
+    const wrapper = document.querySelectorAll('#portfolio .showcase .wrapper')
+    let currentIndex = 0
+    nextBtn.addEventListener('click',()=>{
+      wrapper[currentIndex].style.display = 'none'
+      wrapper[currentIndex].style.opacity = '0'
+
+      currentIndex = (currentIndex + 1) % wrapper.length
+      wrapper[currentIndex].style.animation = 'none'
+      wrapper[currentIndex].offsetHeight 
+
+      wrapper[currentIndex].style.display = 'grid'
+      wrapper[currentIndex].style.opacity = '0'
+      wrapper[currentIndex].style.animation = 'movein 0.3s ease forwards'
+      setTimeout(()=>{
+        wrapper[currentIndex].style.opacity = '1'
+      },100)
+    })
+  }
 })

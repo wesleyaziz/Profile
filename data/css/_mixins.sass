@@ -27,7 +27,7 @@
   background-position: $position1 $position2
 
 @mixin projectCard($config: ())
-  $default: (width: 160px, height: 220px, border-color: #333, bg-color: #acacc0, border-radius: 10px, shadow-color: #000, padding: 0.5em, img-ratio: 0.5, img-border-radius: 5px, img-border-color: #000, img-border-width: 1px, img-margin-bottom: 10px)
+  $default: (width: 180px, height: 250px, border-color: #333, bg-color: #acacc0, border-radius: 10px, shadow-color: #000, padding: 0.5em, img-ratio: 0.5, img-border-radius: 5px, img-border-color: #000, img-border-width: 1px, img-margin-bottom: 10px)
   $config: map-merge($default, $config)
   +size(map-get($config, width), map-get($config, height))
   +flexbox(column)
@@ -39,7 +39,7 @@
   box-shadow: 10px 10px 10px map-get($config, shadow-color)
   cursor: pointer
   img
-    +size(calc(140px - 0.5em), calc(110px - 0.5em))
+    +size(calc(160px - 0.5em), calc(130px - 0.5em))
     border-radius: map-get($config, img-border-radius)
     border: map-get($config, img-border-width) solid map-get($config, img-border-color)
     object-fit: cover

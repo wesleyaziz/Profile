@@ -104,6 +104,10 @@ aside li#logo.active a {
   scroll-behavior: smooth;
 }
 
+body, html {
+  position: relative;
+}
+
 body {
   width: 100vw;
   height: 100vh;
@@ -321,6 +325,9 @@ footer {
   justify-content: flex-start;
   align-items: center;
 }
+#skills ul.icons li.item {
+  margin-right: 15px;
+}
 #skills ul.icons li.item img {
   width: 80px;
   height: 80px;
@@ -385,14 +392,43 @@ footer {
   background-repeat: no-repeat;
   background-position: center bottom;
 }
-#portfolio .showcase {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 30px;
-  position: relative;
+#portfolio .nextBtn {
+  position: fixed;
+  right: 80px;
+  bottom: 80px;
+  color: #8e7c65;
+  font-size: 50px;
+  border-radius: 50%;
+  cursor: pointer;
 }
-#portfolio .showcase li.projectCard {
-  width: 160px;
+#portfolio .nextBtn:active {
+  color: #695c4b;
+  bottom: 75px;
+}
+#portfolio .showcase {
+  position: relative;
+  display: flex;
+  margin: 10px 40px;
+}
+#portfolio .showcase .wrapper {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 30px;
+  -moz-column-gap: 40px;
+       column-gap: 40px;
+  transition: 0.3s;
+}
+#portfolio .showcase .wrapper:nth-child(1) {
+  display: grid;
+  opacity: 1;
+}
+#portfolio .showcase .wrapper:nth-child(2) {
+  display: none;
+  opacity: 0;
+}
+#portfolio .showcase .wrapper li.projectCard {
+  width: 180px;
   height: 220px;
   display: flex;
   flex-direction: column;
@@ -406,106 +442,144 @@ footer {
   box-shadow: 10px 10px 10px #000;
   cursor: pointer;
 }
-#portfolio .showcase li.projectCard img {
-  width: calc(140px - 0.5em);
-  height: calc(110px - 0.5em);
+#portfolio .showcase .wrapper li.projectCard img {
+  width: calc(160px - 0.5em);
+  height: calc(130px - 0.5em);
   border-radius: 5px;
   border: 1px solid #000;
   -o-object-fit: cover;
      object-fit: cover;
   margin-bottom: 10px;
 }
-
-li.projectCard:nth-child(1) {
+#portfolio .showcase li.projectCard:nth-child(1) {
+  transform: rotate(-4deg);
+  transition: transform 0.3s ease;
+}
+#portfolio .showcase li.projectCard:nth-child(1):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+#portfolio .showcase li.projectCard:nth-child(2) {
   transform: rotate(-3deg);
   transition: transform 0.3s ease;
 }
-li.projectCard:nth-child(1):hover {
+#portfolio .showcase li.projectCard:nth-child(2):hover {
   transform: scale(1.2);
   box-shadow: 15px 15px 25px #000;
 }
-
-li.projectCard:nth-child(2) {
+#portfolio .showcase li.projectCard:nth-child(3) {
   transform: rotate(1deg);
   transition: transform 0.3s ease;
 }
-li.projectCard:nth-child(2):hover {
+#portfolio .showcase li.projectCard:nth-child(3):hover {
   transform: scale(1.2);
   box-shadow: 15px 15px 25px #000;
 }
-
-li.projectCard:nth-child(3) {
+#portfolio .showcase li.projectCard:nth-child(4) {
   transform: rotate(-4deg);
   transition: transform 0.3s ease;
 }
-li.projectCard:nth-child(3):hover {
+#portfolio .showcase li.projectCard:nth-child(4):hover {
   transform: scale(1.2);
   box-shadow: 15px 15px 25px #000;
 }
-
-li.projectCard:nth-child(4) {
-  transform: rotate(3deg);
-  transition: transform 0.3s ease;
-}
-li.projectCard:nth-child(4):hover {
-  transform: scale(1.2);
-  box-shadow: 15px 15px 25px #000;
-}
-
-li.projectCard:nth-child(5) {
-  transform: rotate(4deg);
-  transition: transform 0.3s ease;
-}
-li.projectCard:nth-child(5):hover {
-  transform: scale(1.2);
-  box-shadow: 15px 15px 25px #000;
-}
-
-li.projectCard:nth-child(6) {
+#portfolio .showcase li.projectCard:nth-child(5) {
   transform: rotate(-4deg);
   transition: transform 0.3s ease;
 }
-li.projectCard:nth-child(6):hover {
+#portfolio .showcase li.projectCard:nth-child(5):hover {
   transform: scale(1.2);
   box-shadow: 15px 15px 25px #000;
 }
-
-li.projectCard:nth-child(7) {
+#portfolio .showcase li.projectCard:nth-child(6) {
   transform: rotate(-2deg);
   transition: transform 0.3s ease;
 }
-li.projectCard:nth-child(7):hover {
+#portfolio .showcase li.projectCard:nth-child(6):hover {
   transform: scale(1.2);
   box-shadow: 15px 15px 25px #000;
 }
-
-li.projectCard:nth-child(8) {
-  transform: rotate(2deg);
+#portfolio .showcase li.projectCard:nth-child(7) {
+  transform: rotate(-2deg);
   transition: transform 0.3s ease;
 }
-li.projectCard:nth-child(8):hover {
+#portfolio .showcase li.projectCard:nth-child(7):hover {
   transform: scale(1.2);
   box-shadow: 15px 15px 25px #000;
 }
-
-li.projectCard:nth-child(9) {
-  transform: rotate(4deg);
+#portfolio .showcase li.projectCard:nth-child(8) {
+  transform: rotate(1deg);
   transition: transform 0.3s ease;
 }
-li.projectCard:nth-child(9):hover {
+#portfolio .showcase li.projectCard:nth-child(8):hover {
   transform: scale(1.2);
   box-shadow: 15px 15px 25px #000;
 }
-
-li.projectCard:nth-child(10) {
+#portfolio .showcase li.projectCard:nth-child(9) {
+  transform: rotate(1deg);
+  transition: transform 0.3s ease;
+}
+#portfolio .showcase li.projectCard:nth-child(9):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+#portfolio .showcase li.projectCard:nth-child(10) {
+  transform: rotate(5deg);
+  transition: transform 0.3s ease;
+}
+#portfolio .showcase li.projectCard:nth-child(10):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+#portfolio .showcase li.projectCard:nth-child(11) {
+  transform: rotate(-1deg);
+  transition: transform 0.3s ease;
+}
+#portfolio .showcase li.projectCard:nth-child(11):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+#portfolio .showcase li.projectCard:nth-child(12) {
   transform: rotate(0deg);
   transition: transform 0.3s ease;
 }
-li.projectCard:nth-child(10):hover {
+#portfolio .showcase li.projectCard:nth-child(12):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+#portfolio .showcase li.projectCard:nth-child(13) {
+  transform: rotate(5deg);
+  transition: transform 0.3s ease;
+}
+#portfolio .showcase li.projectCard:nth-child(13):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+#portfolio .showcase li.projectCard:nth-child(14) {
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease;
+}
+#portfolio .showcase li.projectCard:nth-child(14):hover {
+  transform: scale(1.2);
+  box-shadow: 15px 15px 25px #000;
+}
+#portfolio .showcase li.projectCard:nth-child(15) {
+  transform: rotate(-3deg);
+  transition: transform 0.3s ease;
+}
+#portfolio .showcase li.projectCard:nth-child(15):hover {
   transform: scale(1.2);
   box-shadow: 15px 15px 25px #000;
 }
 
+@keyframes movein {
+  from {
+    right: 2000px;
+  }
+  to {
+    right: 120px;
+  }
+}
 #contact {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(/data/images/contact/contactBg.png);
   background-size: cover;

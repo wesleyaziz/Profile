@@ -1,17 +1,47 @@
 #portfolio
   +BgImageCover('/data/images/portfolio/portfolio.png',center,bottom)
-  .showcase
-    display: grid
-    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr))
-    gap: 30px
-    position: relative
-    li.projectCard
-      +projectCard()
+  .nextBtn
+    position: fixed
+    right: 80px
+    bottom: 80px
+    color: #8e7c65
+    font-size: 50px
+    border-radius: 50%
+    cursor: pointer
+    &:active
+      color: #695c4b
+      bottom: 75px
 
-@for $i from 1 through 10
-  li.projectCard:nth-child(#{$i})
-    transform: rotate(#{random(10) - 5}deg)
-    transition: transform 0.3s ease
-    &:hover
-      transform: scale(1.2)
-      box-shadow: 15px 15px 25px #000
+  .showcase
+    position: relative
+    display: flex
+    margin: 10px 40px
+    .wrapper
+      position: absolute
+      display: grid
+      grid-template-columns: repeat(4, 1fr)
+      row-gap: 30px
+      column-gap: 40px
+      transition: .3s
+      &:nth-child(1)
+        display: grid
+        opacity: 1
+      &:nth-child(2)
+        display: none
+        opacity: 0
+      li.projectCard
+        +projectCard((width: 180px, height: 220px))
+
+    @for $i from 1 through 15
+      li.projectCard:nth-child(#{$i})
+        transform: rotate(#{random(10) - 5}deg)
+        transition: transform 0.3s ease
+        &:hover
+          transform: scale(1.2)
+          box-shadow: 15px 15px 25px #000
+
+@keyframes movein
+  from
+    right: 2000px
+  to
+    right: 120px
