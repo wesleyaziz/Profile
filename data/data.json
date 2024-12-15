@@ -76,5 +76,49 @@
         ]
       }
     ]
+  },
+  "portfolio": {
+    "projects": [
+      {
+        "title": "shopping cart",
+        "description": "HTML/CSS/JS實作購物車",
+        "link": "https://wesleyaziz.github.io/shoppingCart/"
+      },
+      {
+        "title": "Svartpilen250",
+        "description": "Bootstrap / AOS",
+        "link": "https://wesleyaziz.github.io/Svartpilen250/"
+      },
+      {
+        "title": "Swiper Carousel",
+        "description": "swiper.js實作輪播效果",
+        "link": " https://wesleyaziz.github.io/Swiper_Carousel/"
+      },
+      {
+        "title": "TIMER",
+        "description": "SVG與JS實作計時器",
+        "link": " https://wesleyaziz.github.io/JS-timer/"
+      },
+      {
+        "title": "Portfolio",
+        "description": "使用HTML/CSS/JS實作個人履歷",
+        "link": "https://wesleyaziz.github.io/Portfolio/"
+      },
+      {
+        "title": "Portfolio",
+        "description": "使用HTML/CSS/JS實作個人履歷",
+        "link": "https://wesleyaziz.github.io/Portfolio/"
+      },
+      {
+        "title": "Portfolio",
+        "description": "使用HTML/CSS/JS實作個人履歷",
+        "link": "https://wesleyaziz.github.io/Portfolio/"
+      },
+      {
+        "title": "Portfolio",
+        "description": "使用HTML/CSS/JS實作個人履歷",
+        "link": "https://wesleyaziz.github.io/Portfolio/"
+      }
+    ]
   }
 }

@@ -1,22 +1,27 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 :root {
-  --content-bgc: #eee;
-  --content-text-color: #fff;
-  --content-title-color: #fff;
-  --nav-bgc: #000;
-  --nav-text-color: #fff;
-  --nav-active-text-color: #000;
-  --footer-bgc: #fff;
-  --footer-text-color: #555;
   --nav-width: 80px;
   --nav-height: 65px;
   --primary-color: #4bc5e1;
-  --home-text-color: #555;
-  --about-timeline-color: #04366b;
+  --secondary-color: #04366b;
+  --text-dark: #555;
+  --text-light: #fff;
+  --bg-dark: #000;
+  --bg-light: #eee;
+  --content-bgc: var(--bg-light);
+  --content-text-color: var(--text-light);
+  --content-title-color: var(--text-light);
+  --nav-bgc: var(--bg-dark);
+  --nav-text-color: var(--text-light);
+  --nav-active-text-color: var(--bg-dark);
+  --footer-bgc: var(--text-light);
+  --footer-text-color: var(--text-dark);
+  --home-text-color: var(--text-dark);
+  --about-timeline-color: var(--secondary-color);
+  --about-description-text-size: 18px;
   --about-cursor-rocket-setting: url("/data/images/about/rocketcursor.png") 0 0, auto;
   --about-cursor-aim-setting: url("/data/images/about/focus.png") 32 32, auto;
-  --about-description-text-size: 18px;
 }
 
 @property --angle {
@@ -102,6 +107,9 @@ aside li#logo.active a {
   list-style: none;
   text-decoration: none;
   scroll-behavior: smooth;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 body, html {
@@ -452,7 +460,7 @@ footer {
   margin-bottom: 10px;
 }
 #portfolio .showcase li.projectCard:nth-child(1) {
-  transform: rotate(-4deg);
+  transform: rotate(3deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(1):hover {
@@ -460,7 +468,7 @@ footer {
   box-shadow: 15px 15px 25px #000;
 }
 #portfolio .showcase li.projectCard:nth-child(2) {
-  transform: rotate(-3deg);
+  transform: rotate(0deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(2):hover {
@@ -468,7 +476,7 @@ footer {
   box-shadow: 15px 15px 25px #000;
 }
 #portfolio .showcase li.projectCard:nth-child(3) {
-  transform: rotate(1deg);
+  transform: rotate(0deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(3):hover {
@@ -476,7 +484,7 @@ footer {
   box-shadow: 15px 15px 25px #000;
 }
 #portfolio .showcase li.projectCard:nth-child(4) {
-  transform: rotate(-4deg);
+  transform: rotate(0deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(4):hover {
@@ -484,7 +492,7 @@ footer {
   box-shadow: 15px 15px 25px #000;
 }
 #portfolio .showcase li.projectCard:nth-child(5) {
-  transform: rotate(-4deg);
+  transform: rotate(0deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(5):hover {
@@ -492,7 +500,7 @@ footer {
   box-shadow: 15px 15px 25px #000;
 }
 #portfolio .showcase li.projectCard:nth-child(6) {
-  transform: rotate(-2deg);
+  transform: rotate(3deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(6):hover {
@@ -500,7 +508,7 @@ footer {
   box-shadow: 15px 15px 25px #000;
 }
 #portfolio .showcase li.projectCard:nth-child(7) {
-  transform: rotate(-2deg);
+  transform: rotate(-4deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(7):hover {
@@ -508,7 +516,7 @@ footer {
   box-shadow: 15px 15px 25px #000;
 }
 #portfolio .showcase li.projectCard:nth-child(8) {
-  transform: rotate(1deg);
+  transform: rotate(-4deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(8):hover {
@@ -516,7 +524,7 @@ footer {
   box-shadow: 15px 15px 25px #000;
 }
 #portfolio .showcase li.projectCard:nth-child(9) {
-  transform: rotate(1deg);
+  transform: rotate(-4deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(9):hover {
@@ -524,7 +532,7 @@ footer {
   box-shadow: 15px 15px 25px #000;
 }
 #portfolio .showcase li.projectCard:nth-child(10) {
-  transform: rotate(5deg);
+  transform: rotate(3deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(10):hover {
@@ -532,7 +540,7 @@ footer {
   box-shadow: 15px 15px 25px #000;
 }
 #portfolio .showcase li.projectCard:nth-child(11) {
-  transform: rotate(-1deg);
+  transform: rotate(1deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(11):hover {
@@ -540,7 +548,7 @@ footer {
   box-shadow: 15px 15px 25px #000;
 }
 #portfolio .showcase li.projectCard:nth-child(12) {
-  transform: rotate(0deg);
+  transform: rotate(4deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(12):hover {
@@ -548,7 +556,7 @@ footer {
   box-shadow: 15px 15px 25px #000;
 }
 #portfolio .showcase li.projectCard:nth-child(13) {
-  transform: rotate(5deg);
+  transform: rotate(0deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(13):hover {
@@ -556,7 +564,7 @@ footer {
   box-shadow: 15px 15px 25px #000;
 }
 #portfolio .showcase li.projectCard:nth-child(14) {
-  transform: rotate(-3deg);
+  transform: rotate(-2deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(14):hover {
@@ -564,7 +572,7 @@ footer {
   box-shadow: 15px 15px 25px #000;
 }
 #portfolio .showcase li.projectCard:nth-child(15) {
-  transform: rotate(-3deg);
+  transform: rotate(3deg);
   transition: transform 0.3s ease;
 }
 #portfolio .showcase li.projectCard:nth-child(15):hover {
@@ -623,6 +631,10 @@ footer {
   --opacity: 0;
   width: 320px;
   height: 270px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: calc(var(--h) * 320px);
   left: calc(var(--i) * 220px + 120px);
@@ -632,10 +644,20 @@ footer {
   opacity: 0.6;
   transition: opacity 0.3s;
 }
+#contact .container li a {
+  width: 60%;
+  height: 90%;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+}
 #contact .container li:hover {
   opacity: 1;
 }
 #contact .container li::after {
+  font-weight: bold;
   content: "點擊複製";
   position: fixed;
   font-size: 12px;
@@ -650,4 +672,10 @@ footer {
   transform: translate(10px, 10px);
   transition: opacity 0.2s ease;
   z-index: 9999;
+}
+#contact .container li:nth-child(4)::after {
+  content: "點擊前往";
+}
+#contact .container li:nth-child(5)::after {
+  content: "點擊下載PDF";
 }

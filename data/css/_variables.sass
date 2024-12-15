@@ -1,21 +1,39 @@
+// Layout
 :root
-  --content-bgc: #eee
-  --content-text-color: #fff
-  --content-title-color: #fff
-  --nav-bgc: #000
-  --nav-text-color: #fff
-  --nav-active-text-color: #000
-  --footer-bgc: #fff
-  --footer-text-color: #555
+  // Navigation dimensions
   --nav-width: 80px
   --nav-height: 65px
+
+  // Colors - Theme
   --primary-color: #4bc5e1
-  --home-text-color: #555
-  --about-timeline-color: #04366b
-  --about-cursor-rocket-setting: url('/data/images/about/rocketcursor.png') 0 0, auto
-  --about-cursor-aim-setting: url('/data/images/about/focus.png') 32 32, auto
+  --secondary-color: #04366b
+  --text-dark: #555
+  --text-light: #fff
+  --bg-dark: #000
+  --bg-light: #eee
+
+  // Colors - Components
+  --content-bgc: var(--bg-light)
+  --content-text-color: var(--text-light)
+  --content-title-color: var(--text-light)
+
+  --nav-bgc: var(--bg-dark)
+  --nav-text-color: var(--text-light)
+  --nav-active-text-color: var(--bg-dark)
+
+  --footer-bgc: var(--text-light)
+  --footer-text-color: var(--text-dark)
+
+  // Page-specific
+  --home-text-color: var(--text-dark)
+  --about-timeline-color: var(--secondary-color)
   --about-description-text-size: 18px
 
+  // Cursors
+  --about-cursor-rocket-setting: url('/data/images/about/rocketcursor.png') 0 0, auto
+  --about-cursor-aim-setting: url('/data/images/about/focus.png') 32 32, auto
+
+// Animation property
 @property --angle
   syntax: '<angle>'
   initial-value: 0deg
