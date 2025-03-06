@@ -89,7 +89,35 @@ document.addEventListener('DOMContentLoaded',()=>{
       console.error('error loading timeline data:',error)
     }
   }
+  
+  // portfolio 卡片資訊
+  async function loadPortfolioData() {
+    try {
+      const response = await fetch('/data/data.json')
+      const data = await response.json()
+      const projects = data.portfolio.projects
+      const projectCards = document.querySelectorAll('.projectCard')
 
+      projectCards.forEach((card, index) => {
+        if (projects[index]) {
+          const project = projects[index]
+
+          card.querySelector('img').src = project.img
+          card.querySelector('.title').textContent = project.title
+          card.querySelector('.desc').textContent = project.description
+
+          card.style.cursor = 'pointer'
+          card.addEventListener('click', () => {
+            window.open(project.link, '_blank')
+          })
+        }
+      })
+      
+    } catch (error) {
+      console.error('Error loading portfolio data:', error)
+    }
+  }
+  
   // ====contact page ====
   function initializeContactPage(){
     const contact = document.querySelector('#contact')
@@ -154,24 +182,75 @@ document.addEventListener('DOMContentLoaded',()=>{
     })
   }
 
-  function initializePortfolioPage(){
-    const nextBtn = document.querySelector('#portfolio .nextBtn')
-    const wrapper = document.querySelectorAll('#portfolio .showcase .wrapper')
-    let currentIndex = 0
-    nextBtn.addEventListener('click',()=>{
-      wrapper[currentIndex].style.display = 'none'
-      wrapper[currentIndex].style.opacity = '0'
+  // portfolio 頁面初始化
+  async function initializePortfolioPage() {
+    try {
+      const response = await fetch('/data/data.json')
+      const data = await response.json()
+      const projects = data.portfolio.projects
+      
+      const showcase = document.querySelector('#portfolio .showcase')
+      showcase.innerHTML = '' // Clear existing wrappers
+      
+      // Changed to 2 projects per wrapper
+      const projectsPerWrapper = 2
+      const numberOfWrappers = Math.ceil(projects.length / projectsPerWrapper)
+      
+      // Create wrappers and cards
+      for (let i = 0; i < numberOfWrappers; i++) {
+        const wrapper = document.createElement('div')
+        wrapper.className = 'wrapper'
+        wrapper.style.display = i === 0 ? 'grid' : 'none'
+        wrapper.style.opacity = i === 0 ? '1' : '0'
+        
+        // Create 2 cards for this wrapper
+        for (let j = 0; j < projectsPerWrapper; j++) {
+          const projectIndex = i * projectsPerWrapper + j
+          if (projectIndex < projects.length) {
+            const project = projects[projectIndex]
+            const card = document.createElement('li')
+            card.className = 'projectCard'
+            card.innerHTML = `
+              <img src="${project.img}" alt="${project.title}">
+              <h3 class="title">${project.title}</h3>
+              <p class="desc">${project.description}</p>
+            `
+            
+            card.style.cursor = 'pointer'
+            card.addEventListener('click', () => {
+              window.open(project.link, '_blank')
+            })
+            
+            wrapper.appendChild(card)
+          }
+        }
+        
+        showcase.appendChild(wrapper)
+      }
+      
+      // Initialize next button functionality
+      const nextBtn = document.querySelector('#portfolio .nextBtn')
+      const wrappers = document.querySelectorAll('#portfolio .showcase .wrapper')
+      let currentIndex = 0
+      
+      nextBtn.addEventListener('click', () => {
+        wrappers[currentIndex].style.display = 'none'
+        wrappers[currentIndex].style.opacity = '0'
 
-      currentIndex = (currentIndex + 1) % wrapper.length
-      wrapper[currentIndex].style.animation = 'none'
-      wrapper[currentIndex].offsetHeight 
+        currentIndex = (currentIndex + 1) % wrappers.length
+        wrappers[currentIndex].style.animation = 'none'
+        wrappers[currentIndex].offsetHeight 
 
-      wrapper[currentIndex].style.display = 'grid'
-      wrapper[currentIndex].style.opacity = '0'
-      wrapper[currentIndex].style.animation = 'movein 0.3s ease forwards'
-      setTimeout(()=>{
-        wrapper[currentIndex].style.opacity = '1'
-      },100)
-    })
+        wrappers[currentIndex].style.display = 'grid'
+        wrappers[currentIndex].style.opacity = '0'
+        wrappers[currentIndex].style.animation = 'movein 0.3s ease forwards'
+        setTimeout(() => {
+          wrappers[currentIndex].style.opacity = '1'
+        }, 100)
+      })
+      
+    } catch (error) {
+      console.error('Error initializing portfolio page:', error)
+    }
   }
 })

@@ -70,7 +70,6 @@
           "深入學習JS",
           "markdown 文件撰寫",
           "webpack 打包工具",
-          "基礎Vue.js框架",
           "GSAP 動畫套件",
           "網頁互動效果"
         ]
@@ -80,41 +79,57 @@
   "portfolio": {
     "projects": [
       {
+        "no.":1,
+        "img":"/data/images/portfolio/shoppingcart.png",
         "title": "shopping cart",
         "description": "HTML/CSS/JS實作購物車",
         "link": "https://wesleyaziz.github.io/shoppingCart/"
       },
       {
+        "no.":2,
+        "img":"/data/images/portfolio/Svartpilen250.png",
         "title": "Svartpilen250",
         "description": "Bootstrap / AOS",
         "link": "https://wesleyaziz.github.io/Svartpilen250/"
       },
       {
-        "title": "Swiper Carousel",
-        "description": "swiper.js實作輪播效果",
-        "link": " https://wesleyaziz.github.io/Swiper_Carousel/"
+        "no.":3,
+        "img":"/data/images/portfolio/login-registerForm.png",
+        "title": "login-registerForm",
+        "description": "登入與註冊頁面",
+        "link": "https://wesleyaziz.github.io/login-registerForm/"
       },
       {
+        "no.":4,
+        "img":"/data/images/portfolio/timer.png",
         "title": "TIMER",
         "description": "SVG與JS實作計時器",
         "link": " https://wesleyaziz.github.io/JS-timer/"
       },
       {
-        "title": "Portfolio",
-        "description": "使用HTML/CSS/JS實作個人履歷",
-        "link": "https://wesleyaziz.github.io/Portfolio/"
+        "no.":5,
+        "img":"/data/images/portfolio/comicE_Book.png",
+        "title": "Interactive Comic Book",
+        "description": "CSS 電子書翻頁效果",
+        "link": "https://wesleyaziz.github.io/comicE_Book/"
       },
       {
-        "title": "Portfolio",
-        "description": "使用HTML/CSS/JS實作個人履歷",
-        "link": "https://wesleyaziz.github.io/Portfolio/"
+        "no.":6,
+        "img":"/data/images/portfolio/Svartpilen250.png",
+        "title": "Swiper Carousel",
+        "description": "swiper.js實作輪播效果",
+        "link": " https://wesleyaziz.github.io/Swiper_Carousel/"
+      },
+      { 
+        "no.":7,
+        "img":"/data/images/portfolio/Svartpilen250.png",
+        "title": "login-registerForm",
+        "description": "登入與註冊頁面",
+        "link": "https://wesleyaziz.github.io/login-registerForm/"
       },
       {
-        "title": "Portfolio",
-        "description": "使用HTML/CSS/JS實作個人履歷",
-        "link": "https://wesleyaziz.github.io/Portfolio/"
-      },
-      {
+        "no.":8,
+        "img":"/data/images/portfolio/Svartpilen250.png",
         "title": "Portfolio",
         "description": "使用HTML/CSS/JS實作個人履歷",
         "link": "https://wesleyaziz.github.io/Portfolio/"
