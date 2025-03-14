@@ -66,9 +66,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         throw new Error('Error loading JSON')
       }
       const data = await response.json()
-
       const descriptionEle = document.querySelector('.description')
-      
       const timelineItems = document.querySelectorAll('.timeline .item')
       
       timelineItems.forEach((item,index)=>{

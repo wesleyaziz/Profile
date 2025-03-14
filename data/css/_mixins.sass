@@ -27,20 +27,24 @@
   background-position: $position1 $position2
 
 @mixin projectCard($config: ())
-  $default: (width: 180px, height: 250px, border-color: #333, bg-color: #acacc0, border-radius: 10px, shadow-color: #000, padding: 0.5em, img-ratio: 0.5, img-border-radius: 5px, img-border-color: #000, img-border-width: 1px, img-margin-bottom: 10px)
+  $default: (width: 180px, height: 250px, border-color: #333, bg-color: #acacc0, border-radius: 10px, shadow-color: #000, padding: 0.5em, img-ratio: 0.5, img-border-radius: 5px, img-border-width: 1px, img-margin-bottom: 10px)
   $config: map-merge($default, $config)
-  +size(map-get($config, width), map-get($config, height))
-  +flexbox(column)
+  @include size(map-get($config, width), map-get($config, height))
+  @include flexbox(column)
   position: relative
   border-radius: map-get($config, border-radius)
   border: 5px solid map-get($config, border-color)
   background-color: map-get($config, bg-color)
   padding: map-get($config, padding)
-  box-shadow: 10px 10px 10px map-get($config, shadow-color)
+  box-shadow: 10px 10px 10px map-get($config, shadow-color), inset 0 0 15px rgba(0,0,0,.2)
   cursor: pointer
+  overflow: hidden
   img
-    +size(calc(25vw - 0.5em), calc(250px - 0.5em))
+    @include size(calc(25vw - 0.5em), calc(250px - 0.5em))
     border-radius: map-get($config, img-border-radius)
     border: map-get($config, img-border-width) solid map-get($config, img-border-color)
     object-fit: cover
     margin-bottom: map-get($config, img-margin-bottom)
+    box-shadow: 0 4px 8px rgba(0,0,0,.2)
+    position: relative
+    z-index: 1

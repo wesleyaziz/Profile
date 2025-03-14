@@ -20,6 +20,7 @@
   --home-text-color: var(--text-dark);
   --about-timeline-color: var(--secondary-color);
   --about-description-text-size: 18px;
+  --about-timeline-planet-size: 60px;
   --about-cursor-rocket-setting: url("/data/images/about/rocketcursor.png") 0 0, auto;
   --about-cursor-aim-setting: url("/data/images/about/focus.png") 32 32, auto;
 }
@@ -209,10 +210,29 @@ footer {
   height: 100vh;
   position: absolute;
   left: 80px;
-  border-top: 10px solid var(--about-timeline-color);
   display: flex;
 }
-#about ul.timeline li.item {
+#about ul.timeline .line-gradient {
+  position: absolute;
+  display: block;
+  top: calc(-1 * var(--about-timeline-planet-size) / 2);
+  width: 100%;
+  height: 100%;
+  margin: 20px 0;
+  overflow: hidden;
+}
+#about ul.timeline .line-gradient::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 200%;
+  height: 10px;
+  background: conic-gradient(from var(--angle), var(--secondary-color), var(--primary-color), var(--secondary-color));
+  animation: lineSlip 3s linear infinite;
+}
+#about li.item {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -220,17 +240,19 @@ footer {
   align-items: center;
   width: 200px;
   height: auto;
-  top: -37px;
+  top: -30px;
   left: calc(var(--i) * 200px);
   text-align: center;
 }
-#about ul.timeline li.item .planet {
-  width: 60px;
-  height: 60px;
+#about li.item .planet {
+  width: var(--about-timeline-planet-size);
+  height: var(--about-timeline-planet-size);
+  background-image: url("/data/images/about/planet.png");
   background-size: contain;
   background-repeat: no-repeat;
   margin-bottom: 10px;
   cursor: var(--about-cursor-aim-setting);
+  animation: spin 20s linear infinite;
 }
 #about .description {
   width: 100%;
@@ -258,6 +280,7 @@ footer {
 }
 #about .description li {
   list-style: decimal;
+  font-size: 1.3rem;
 }
 
 @keyframes spaceshipUp {
@@ -278,6 +301,22 @@ footer {
   to {
     bottom: -400px;
     opacity: 0;
+  }
+}
+@keyframes lineSlip {
+  from {
+    --angle: 0deg;
+  }
+  to {
+    --angle: 360deg;
+  }
+}
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 #skills {
@@ -438,8 +477,9 @@ footer {
   border: 5px solid #333;
   background-color: #acacc0;
   padding: 0.5em;
-  box-shadow: 10px 10px 10px #000;
+  box-shadow: 10px 10px 10px #000, inset 0 0 15px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  overflow: hidden;
   min-width: 300px;
   max-width: 500px;
   margin: 0 auto;
@@ -449,10 +489,13 @@ footer {
   width: calc(25vw - 0.5em);
   height: calc(250px - 0.5em);
   border-radius: 5px;
-  border: 1px solid #000;
+  border: 1px solid;
   -o-object-fit: cover;
      object-fit: cover;
   margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+  z-index: 1;
 }
 #portfolio .showcase .wrapper li.projectCard:hover {
   transform: scale(1.1);
