@@ -21,6 +21,8 @@
   --about-timeline-color: var(--secondary-color);
   --about-description-text-size: 18px;
   --about-timeline-planet-size: 60px;
+  --portfolio-card-grid-bgi: linear-gradient(0deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent), linear-gradient(90deg, transparent 24%, rgba(255, 255, 255, .05) 25%, rgba(255, 255, 255, .05) 26%, transparent 27%, transparent 74%, rgba(255, 255, 255, .05) 75%, rgba(255, 255, 255, .05) 76%, transparent 77%, transparent);
+  --portfolio-card-grid-size: 100px 100px;
   --about-cursor-rocket-setting: url("/data/images/about/rocketcursor.png") 0 0, auto;
   --about-cursor-aim-setting: url("/data/images/about/focus.png") 32 32, auto;
 }
@@ -454,62 +456,54 @@ footer {
 }
 #portfolio .showcase {
   position: relative;
+  width: 100%;
   display: flex;
   margin: 10px 40px;
+  perspective: 1000px;
 }
-#portfolio .showcase .wrapper {
+#portfolio .showcase .projectCard {
   position: absolute;
-  left: 0;
-  right: 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  transition: 0.3s;
-}
-#portfolio .showcase .wrapper li.projectCard {
-  width: 30vw;
-  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  position: relative;
-  border-radius: 10px;
-  border: 5px solid #333;
-  background-color: #acacc0;
-  padding: 0.5em;
-  box-shadow: 10px 10px 10px #000, inset 0 0 15px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
+  background: linear-gradient(to right top, #323b7d, #777eb3);
+  border: 3px solid black;
+  padding: 30px 40px;
+  border-radius: 20px;
+  height: auto;
+  box-shadow: 10px 10px 10px 0 rgba(0, 0, 0, 0.5), inset 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease;
+  z-index: calc(1000 - var(--i));
+  transform-origin: center center;
   overflow: hidden;
-  min-width: 300px;
-  max-width: 500px;
-  margin: 0 auto;
-  transition: transform 0.3s ease;
+  cursor: pointer;
 }
-#portfolio .showcase .wrapper li.projectCard img {
-  width: calc(25vw - 0.5em);
-  height: calc(250px - 0.5em);
-  border-radius: 5px;
-  border: 1px solid;
-  -o-object-fit: cover;
-     object-fit: cover;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  position: relative;
+#portfolio .showcase .projectCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--portfolio-card-grid-bgi);
+  background-size: var(--portfolio-card-grid-size);
+  pointer-events: none;
   z-index: 1;
 }
-#portfolio .showcase .wrapper li.projectCard:hover {
-  transform: scale(1.1);
+#portfolio .showcase .projectCard:hover {
+  transform: scale(1.1) translateZ(20px) !important;
   box-shadow: 15px 15px 25px #000;
+  z-index: 1001;
+}
+#portfolio .showcase .projectCard img, #portfolio .showcase .projectCard .title, #portfolio .showcase .projectCard .desc {
+  position: relative;
+  z-index: 2;
+}
+#portfolio .showcase .projectCard img {
+  width: clamp(400px, 50vw, 600px);
+  height: clamp(350px, 50vh, 600px);
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
-@keyframes movein {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
 #contact {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(/data/images/contact/contactBg.png);
   background-size: cover;

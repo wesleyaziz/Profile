@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded',()=>{
         initializeContactPage()
       }
       if(page === 'portfolio') { 
-        initializePortfolioPage()
+        initPortfolioPage()
       }
     }catch(error){
       console.error('Error Loading Page:', error)
@@ -85,34 +85,6 @@ document.addEventListener('DOMContentLoaded',()=>{
       })
     } catch(error){
       console.error('error loading timeline data:',error)
-    }
-  }
-  
-  // portfolio 卡片資訊
-  async function loadPortfolioData() {
-    try {
-      const response = await fetch('/data/data.json')
-      const data = await response.json()
-      const projects = data.portfolio.projects
-      const projectCards = document.querySelectorAll('.projectCard')
-
-      projectCards.forEach((card, index) => {
-        if (projects[index]) {
-          const project = projects[index]
-
-          card.querySelector('img').src = project.img
-          card.querySelector('.title').textContent = project.title
-          card.querySelector('.desc').textContent = project.description
-
-          card.style.cursor = 'pointer'
-          card.addEventListener('click', () => {
-            window.open(project.link, '_blank')
-          })
-        }
-      })
-      
-    } catch (error) {
-      console.error('Error loading portfolio data:', error)
     }
   }
   
@@ -180,75 +152,59 @@ document.addEventListener('DOMContentLoaded',()=>{
     })
   }
 
-  // portfolio 頁面初始化
-  async function initializePortfolioPage() {
-    try {
+  // ====portfolio====
+  async function initPortfolioPage(){
+    try{
       const response = await fetch('/data/data.json')
       const data = await response.json()
       const projects = data.portfolio.projects
-      
+
       const showcase = document.querySelector('#portfolio .showcase')
-      showcase.innerHTML = '' // Clear existing wrappers
+      showcase.innerHTML = ''
       
-      // Changed to 2 projects per wrapper
-      const projectsPerWrapper = 2
-      const numberOfWrappers = Math.ceil(projects.length / projectsPerWrapper)
-      
-      // Create wrappers and cards
-      for (let i = 0; i < numberOfWrappers; i++) {
-        const wrapper = document.createElement('div')
-        wrapper.className = 'wrapper'
-        wrapper.style.display = i === 0 ? 'grid' : 'none'
-        wrapper.style.opacity = i === 0 ? '1' : '0'
-        
-        // Create 2 cards for this wrapper
-        for (let j = 0; j < projectsPerWrapper; j++) {
-          const projectIndex = i * projectsPerWrapper + j
-          if (projectIndex < projects.length) {
-            const project = projects[projectIndex]
-            const card = document.createElement('li')
-            card.className = 'projectCard'
-            card.innerHTML = `
-              <img src="${project.img}" alt="${project.title}">
-              <h3 class="title">${project.title}</h3>
-              <p class="desc">${project.description}</p>
-            `
-            
-            card.style.cursor = 'pointer'
-            card.addEventListener('click', () => {
-              window.open(project.link, '_blank')
-            })
-            
-            wrapper.appendChild(card)
-          }
-        }
-        
-        showcase.appendChild(wrapper)
+      if(!projects){
+        showcase.innerHTML = '<p>No projects available</p>'
+        return
       }
-      
-      // Initialize next button functionality
+
+      showcase.innerHTML = `
+        ${projects.map((card, index) => {
+          return `
+            <div class="projectCard" style="--i:${index}">
+              <img src="${card.img}" alt="${card.title}">
+              <h3 class="title">${card.title}</h3>
+              <p class="desc">${card.description}</p>
+            </div>
+          `
+        }).join('')}
+      `
+
       const nextBtn = document.querySelector('#portfolio .nextBtn')
-      const wrappers = document.querySelectorAll('#portfolio .showcase .wrapper')
-      let currentIndex = 0
+      const cards = document.querySelectorAll('.projectCard')
       
+      positionCards(cards)
+
       nextBtn.addEventListener('click', () => {
-        wrappers[currentIndex].style.display = 'none'
-        wrappers[currentIndex].style.opacity = '0'
-
-        currentIndex = (currentIndex + 1) % wrappers.length
-        wrappers[currentIndex].style.animation = 'none'
-        wrappers[currentIndex].offsetHeight 
-
-        wrappers[currentIndex].style.display = 'grid'
-        wrappers[currentIndex].style.opacity = '0'
-        wrappers[currentIndex].style.animation = 'movein 0.3s ease forwards'
-        setTimeout(() => {
-          wrappers[currentIndex].style.opacity = '1'
-        }, 100)
+        const cards = document.querySelectorAll('.projectCard')
+        
+        showcase.appendChild(cards[0])
+        
+        positionCards(document.querySelectorAll('.projectCard'))
       })
-      
-    } catch (error) {
+
+    } catch(error) {
       console.error('Error initializing portfolio page:', error)
     }
+  }
+
+  function positionCards(cards) {
+    cards.forEach((card, index) => {
+      card.style.setProperty('--i', index)
+      card.style.transform = `
+        translateX(${index * 50}px) 
+        scale(${1 - index * 0.05})
+      `
+      card.style.transition = 'all 0.5s ease'
+    })
   }
 })
