@@ -201,8 +201,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     cards.forEach((card, index) => {
       card.style.setProperty('--i', index)
       card.style.transform = `
-        translateX(${index * 50}px) 
-        scale(${1 - index * 0.05})
+        translateY(${index * 20}px)
       `
       card.style.transition = 'all 0.5s ease'
     })

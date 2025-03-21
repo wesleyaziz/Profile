@@ -108,27 +108,41 @@
       },
       {
         "no.":5,
+        "img":"/data/images/portfolio/warningtape.png",
+        "title": "warning tape",
+        "description": "使用GSAP scrollTrigger 製作警示膠帶",
+        "link": " https://wesleyaziz.github.io/gsap-scrollTrigger/"
+      },
+      {
+        "no.":6,
         "img":"/data/images/portfolio/comicE_Book.png",
         "title": "Interactive Comic Book",
         "description": "CSS 電子書翻頁效果",
         "link": "https://wesleyaziz.github.io/comicE_Book/"
       },
       {
-        "no.":6,
+        "no.":7,
         "img":"/data/images/portfolio/Svartpilen250.png",
         "title": "Swiper Carousel",
         "description": "swiper.js實作輪播效果",
         "link": " https://wesleyaziz.github.io/Swiper_Carousel/"
       },
       { 
-        "no.":7,
+        "no.":8,
         "img":"/data/images/portfolio/Svartpilen250.png",
         "title": "login-registerForm",
         "description": "登入與註冊頁面",
         "link": "https://wesleyaziz.github.io/login-registerForm/"
       },
       {
-        "no.":8,
+        "no.":9,
+        "img":"/data/images/portfolio/Svartpilen250.png",
+        "title": "Portfolio",
+        "description": "使用HTML/CSS/JS實作個人履歷",
+        "link": "https://wesleyaziz.github.io/Portfolio/"
+      },
+      {
+        "no.":10,
         "img":"/data/images/portfolio/Svartpilen250.png",
         "title": "Portfolio",
         "description": "使用HTML/CSS/JS實作個人履歷",

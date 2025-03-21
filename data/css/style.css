@@ -460,6 +460,7 @@ footer {
   display: flex;
   margin: 10px 40px;
   perspective: 1000px;
+  margin-left: 100px;
 }
 #portfolio .showcase .projectCard {
   position: absolute;
@@ -488,18 +489,13 @@ footer {
   pointer-events: none;
   z-index: 1;
 }
-#portfolio .showcase .projectCard:hover {
-  transform: scale(1.1) translateZ(20px) !important;
-  box-shadow: 15px 15px 25px #000;
-  z-index: 1001;
-}
 #portfolio .showcase .projectCard img, #portfolio .showcase .projectCard .title, #portfolio .showcase .projectCard .desc {
   position: relative;
   z-index: 2;
 }
 #portfolio .showcase .projectCard img {
-  width: clamp(400px, 50vw, 600px);
-  height: clamp(350px, 50vh, 600px);
+  width: clamp(400px, 50vw, 1200px);
+  height: clamp(350px, 50vh, 1000px);
   -o-object-fit: contain;
      object-fit: contain;
 }
