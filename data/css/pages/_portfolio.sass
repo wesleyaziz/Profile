@@ -1,16 +1,20 @@
 #portfolio
   +BgImageCover('/data/images/portfolio/portfolio.png',center,bottom)
-  .nextBtn
+  .nextBtn,.prevBtn
     font-size: 50px
     position: fixed
-    right: 80px
-    bottom: 80px
     color: #8e7c65
     border-radius: 50%
     cursor: pointer
     &:active
       color: #695c4b
       bottom: 75px
+  .nextBtn
+    right: 80px
+    bottom: 80px
+  .prevBtn
+    left: calc(var(--nav-width) + 80px)
+    bottom: 80px
 
   .showcase
     position: relative

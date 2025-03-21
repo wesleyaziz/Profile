@@ -441,18 +441,24 @@ footer {
   background-repeat: no-repeat;
   background-position: center bottom;
 }
-#portfolio .nextBtn {
+#portfolio .nextBtn, #portfolio .prevBtn {
   font-size: 50px;
   position: fixed;
-  right: 80px;
-  bottom: 80px;
   color: #8e7c65;
   border-radius: 50%;
   cursor: pointer;
 }
-#portfolio .nextBtn:active {
+#portfolio .nextBtn:active, #portfolio .prevBtn:active {
   color: #695c4b;
   bottom: 75px;
+}
+#portfolio .nextBtn {
+  right: 80px;
+  bottom: 80px;
+}
+#portfolio .prevBtn {
+  left: calc(var(--nav-width) + 80px);
+  bottom: 80px;
 }
 #portfolio .showcase {
   position: relative;

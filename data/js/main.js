@@ -170,7 +170,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       showcase.innerHTML = `
         ${projects.map((card, index) => {
           return `
-            <div class="projectCard" style="--i:${index}">
+            <div class="projectCard" style="--i:${index}" data-project-id="${index}">
               <img src="${card.img}" alt="${card.title}">
               <h3 class="title">${card.title}</h3>
               <p class="desc">${card.description}</p>
@@ -178,18 +178,37 @@ document.addEventListener('DOMContentLoaded',()=>{
           `
         }).join('')}
       `
+      showcase.addEventListener('click', (e) => {
+        const projectCard = e.target.closest('.projectCard')
+        if (projectCard) {
+          const originalIndex = projectCard.dataset.projectId
+          const projectLink = projects[originalIndex].link
+          if (projectLink) {
+            window.open(projectLink, '_blank')
+          }
+        }
+      })
 
+      // prevBtn 和 nextBtn
+      const prevBtn = document.querySelector('#portfolio .prevBtn')
       const nextBtn = document.querySelector('#portfolio .nextBtn')
-      const cards = document.querySelectorAll('.projectCard')
-      
-      positionCards(cards)
 
+      function getCurrentCards() {
+        return document.querySelectorAll('.projectCard')
+      }
+
+      positionCards(getCurrentCards())
+
+      prevBtn.addEventListener('click', () => {
+        const currentCards = getCurrentCards()
+        showcase.insertBefore(currentCards[currentCards.length - 1], currentCards[0])
+        positionCards(getCurrentCards())
+      })
+      
       nextBtn.addEventListener('click', () => {
-        const cards = document.querySelectorAll('.projectCard')
-        
-        showcase.appendChild(cards[0])
-        
-        positionCards(document.querySelectorAll('.projectCard'))
+        const currentCards = getCurrentCards()
+        showcase.appendChild(currentCards[0])
+        positionCards(getCurrentCards())
       })
 
     } catch(error) {
