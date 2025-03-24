@@ -48,3 +48,12 @@
     box-shadow: 0 4px 8px rgba(0,0,0,.2)
     position: relative
     z-index: 1
+
+//  RWD Settings
+    $breakpoints: ( mobile: 360px, tablet: 768px, desktop: 1366px)
+@mixin respond-to($bp)
+  @if map-has-key($breakpoints,$bp)
+    @media (max-width:map-get($breakpoints,$bp))
+      @content
+  @else
+    @warn "Breakpoint '#{$bp}' not found in $breakpoints."
